@@ -1,7 +1,7 @@
 sub Connect(){
         use DBI;
 
-        my $dbname = "ehg_dev";
+        my $dbname = "nombre de la base de datos";
         our $dbh = DBI->connect("dbi:Pg:dbname=$dbname", "pgsql", "");
 }
 
@@ -13,7 +13,7 @@ sub Query($){
 
         my $lenth=0;
         $sqlXML = XMLin('<xml/>',ForceArray=>1);
-        open(my $fh,'>>', '/var/log/fer.log');
+        open(my $fh,'>>', '/var/log/registro.log');   #registro de actividad-------->>>>>>><<<<<<<
         print $fh  'DB.pm: '.$SQLsentence."\n";
         close $fh;
         my $sth = $dbh->prepare($SQLsentence);
@@ -42,7 +42,7 @@ sub Do($){
         use XML::Simple;
         use Data::Dump qw(dump);
         my ($SQLsentence) = (@_);
-        open(my $fh,'>>', '/var/log/fer.log');
+        open(my $fh,'>>', '/var/log/registro.log');   #registro de actividad-------->>>>>>><<<<<<<
         print $fh  'DB.pm: '.$SQLsentence."\n";
         close $fh;
         $row = $dbh->do($SQLsentence);
