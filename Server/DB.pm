@@ -1,6 +1,6 @@
 sub Connect(){
         use DBI;
-
+        use strict;
         my $dbname = "nombre de la base de datos";
         our $dbh = DBI->connect("dbi:Pg:dbname=$dbname", "pgsql", "");
 }
